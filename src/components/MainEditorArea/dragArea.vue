@@ -145,6 +145,7 @@ export default {
         x: offsetX,
         y: offsetY,
       });
+      
     },
     onActivated(e) {
       this.editorLayout.forEach((element) => {

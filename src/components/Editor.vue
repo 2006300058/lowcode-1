@@ -23,11 +23,11 @@
             :class="`header-redo ${!canRedo ? 'disable-btn' : ''}`"
             />
         </div>
-        <button  size="mini" title="生成图片" @click="toImage()" icon="el-icon-download">
-        截图发布</button>
+        <el-button  size="mini" title="生成图片" @click="toImage()" :icon="el-icon-download">
+        截图发布</el-button>
       </div>
-      <div class="editor-container">
-        <DragArea
+      <div class="editor-container" >
+        <DragArea 
           :scale-num="scaleOption"
         >
         </DragArea>
@@ -35,7 +35,7 @@
           <span @click="handleAddorSubScale('sub')">
             <icon-font
               code="&#xe607;"
-              color="#D8D9E2"
+              color="rgb(92, 194, 255)"
             ></icon-font>
           </span>
           <el-slider
@@ -49,7 +49,7 @@
           <span @click="handleAddorSubScale('add')">
             <icon-font
               code="&#xe608;"
-              color="#D8D9E2"
+              color="rgb(92, 194, 255)"
             ></icon-font>
           </span>
         </div>
@@ -180,6 +180,7 @@ export default {
       height: 20px;
       border-radius: 6px;
       padding: 5px;
+      margin-right: 20px;
       &:hover {
         background: #e9f1ff;
       }
@@ -192,14 +193,15 @@ export default {
   .editor-container {
     width: 100%;
     height: calc(100% - 70px);
-    background-image: linear-gradient(90deg, rgba(50, 0, 0, 0.05) 10%, rgba(0, 0, 0, 0) 10%),
-    linear-gradient(360deg, rgba(50, 0, 0, 0.05) 10%, rgba(0, 0, 0, 0) 10%);
+     background-image: linear-gradient(90deg, rgba(50, 0, 0, 0.05) 10%, rgba(0, 0, 0, 0) 10%),
+     linear-gradient(360deg, rgba(50, 0, 0, 0.05) 10%, rgba(0, 0, 0, 0) 10%);
     background-size: 20px 20px;
-    overflow: scroll;
+    overflow: auto;
     position: relative;
     /deep/ .scale-tip {
       position: fixed;
       width: 200px;
+      //height: 50px;
       bottom: 40px;
       right: 450px;
       display: flex;
@@ -218,14 +220,16 @@ export default {
         .el-slider__button {
           width: 10px;
           height: 10px;
-          border: solid 1px #D8D9E2;
+          border: solid 1px rgb(92, 194, 255);
         }
       }
       .el-slider__bar {
-        background-color: #D8D9E2;
+        background-color: rgb(92, 194, 255);
+        
         height: 4px;
-        border-top-left-radius: 2px;
-        border-bottom-left-radius: 2px;
+         border-top-left-radius: 2px;
+         border-bottom-left-radius: 2px;
+        
       }
     }
   }

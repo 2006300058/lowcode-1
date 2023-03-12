@@ -20,6 +20,7 @@ export default new Vuex.Store({
         },
         addComponent: (state, payload) => {
             state.editorLayout.push(payload);
+            console.log(state.editorLayout)
         },
         deleteComponent: (state, payload) => {
             state.editorLayout = state.editorLayout.filter((compoent) => payload !== compoent.id);
@@ -65,6 +66,7 @@ export default new Vuex.Store({
                 active: false,
                 id: uuid().replace(/-/g, ''),
             };
+            console.log(component)
             commit('addComponent', component);
             commit('record');
         },
