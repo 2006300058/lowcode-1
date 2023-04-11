@@ -1,3 +1,7 @@
+## 说明
+```
+一个仿低代码平台，支持文本，矩形，图片，视频，表格等组件的拖拽生成以及编辑组件的属性，支持生成图片以及生成JSON数据。
+```
 
 
 ## 技术栈
@@ -8,6 +12,7 @@
 + Echarts
 + Vue-draageble-resize
 + vue-color
++ file-saver
 
 
 
@@ -18,14 +23,20 @@
 
 
 
-## 安装包
+## 初始化
 
 ```
-yarn install
+yarn  或 npm install
 ```
 
 ### 开发
 
 ```
-yarn dev
+yarn dev 或 npm run dev
+```
+
+### 打包
+
+```
+yarn build 或 npm run build
 ```
