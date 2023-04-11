@@ -114,6 +114,7 @@ export default {
     options(newVal) {
       if (newVal && newVal.tableData) {
         this.curTableData = JSON.stringify(newVal.tableData || '', null, 2);
+        console.log(this.curTableData)
       }
     },
   },

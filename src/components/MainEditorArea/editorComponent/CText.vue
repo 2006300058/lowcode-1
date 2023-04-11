@@ -3,7 +3,7 @@
       class="text-box"
       :style="boxStyle"
     >
-      <div>{{ options.text }}</div>
+        {{ options.text }}
     </div>
 </template>
 <script>
@@ -65,7 +65,8 @@ export default {
 <style lang="less" scoped>
 .text-box {
   caret-color: transparent;
-  overflow: hidden;
+  //overflow: hidden;
+  word-wrap: break-word;
   height: 100%;
   width: 100%;
 }

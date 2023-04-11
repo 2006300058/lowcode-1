@@ -2,7 +2,7 @@
 <template>
     <div class="components-box">
       <div class="header-logo">
-        CEditor
+        Component Editor
       </div>
       <div class="container">
         <!-- <div class="container-header">组件库</div> -->
@@ -63,7 +63,7 @@ export default {
         },
         {
           name: 'rect',
-          label: '按钮',
+          label: '矩形',
           type: 'normal',
           imgSrc: 'https://www.logosc.cn/oss/icons/2022/04/13/0571e1e656651c968eed1984c9acdedc.png',
         },
@@ -106,8 +106,10 @@ export default {
   width: 355px;
   box-shadow: 4px 0px 6px rgba(221, 221, 221, 0.726);
   .header-logo {
+    font-size: 26px;
+    
     padding: 20px;
-    border-bottom: .02666667rem solid #ebedf0;
+    border-bottom: .016667rem solid #ebedf0;
   }
   .container {
     .container-header {
@@ -148,14 +150,14 @@ export default {
         0 3px 6px 0 rgba(0, 0, 0, 12%),
         0 5px 12px 4px rgba(0, 0, 0, 9%);
         .card-top {
-          transform: scale(1.2);
+          transform: scale(1.13);
         }
       }
       &:last-child {
         margin-right: auto;
       }
       .card-top {
-        font-size: 15px;
+        font-size: 18px;
         color: #000;
         font-family:'Gill Sans', 'Gill Sans MT',
         Calibri, 'Trebuchet MS', sans-serif;
@@ -163,7 +165,7 @@ export default {
       }
       .card-bottom {
         padding: 5px 0px;
-        color: #5c5b5b;
+        color: #857e7e;
       }
     }
   }

@@ -3,7 +3,9 @@
       class="url-box"
       :style="boxStyle"
     >
-      <div>{{ options.text }}</div>
+      <a :href="options.url" target="_blank" >
+        {{ options.text }}
+      </a>
     </div>
 </template>
 <script>
@@ -65,8 +67,16 @@ export default {
 <style lang="less" scoped>
 .url-box {
   caret-color: transparent;
-  overflow: hidden;
+  word-wrap: break-word;
   height: 100%;
   width: 100%;
+
+  a {
+    text-decoration: none;  color: black 
+  }
+  a:hover {
+    text-decoration: underline;
+    color: rgb(65, 193, 243);
+  }
 }
 </style>

@@ -5,7 +5,7 @@ import CBarChart from './CBarChart.vue';
 import CLineChart from './CLineChart.vue';
 import CRect from './CRect.vue';
 import CVideo from './CVideo.vue';
-import CURL from './CURL.vue'
+import CURL from './CUrl.vue'
 
 // 组件js暴露
 
@@ -17,5 +17,5 @@ export default {
     CLine: CLineChart,
     CRect,
     CVideo,
-    CURL
+    CUrl: CURL
 };

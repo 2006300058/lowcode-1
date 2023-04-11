@@ -38,7 +38,8 @@ export const VIDEO_DATA = {
 
 // URL数据
 export const URL_DATA = {
-    text: 'https://github.com/Jiang-Feiyu/ainiake/branches',
+    text: 'https://www.baidu.com',
+    url: 'https://www.baidu.com',
     color: '#0000FF',
     fontSize: 10,
     fontFamily: 'ZCOOL QingKe HuangYou',

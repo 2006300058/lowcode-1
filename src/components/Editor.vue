@@ -1,5 +1,5 @@
 <template>
-    <div class="editor" ref="imageTofile">
+    <div class="editor" >
       <div class="editor-header" >
         <div
           :class="`header-undo`"
@@ -24,9 +24,11 @@
             />
         </div>
         <el-button  size="mini" title="生成图片" @click="toImage()" :icon="el-icon-download">
-        截图发布</el-button>
+        导出图片</el-button>
+        <el-button size="mini" title="画布内容转换为JSON" @click="toJSON()">导出JSON数据</el-button>
+        <el-button size="mini" title="待定">导出HTML数据</el-button>
       </div>
-      <div class="editor-container" >
+      <div class="editor-container" ref="imageTofile">
         <DragArea 
           :scale-num="scaleOption"
         >
@@ -35,7 +37,8 @@
           <span @click="handleAddorSubScale('sub')">
             <icon-font
               code="&#xe607;"
-              color="rgb(92, 194, 255)"
+              color="rgb(13, 128, 194)"
+              size="20"
             ></icon-font>
           </span>
           <el-slider
@@ -49,7 +52,8 @@
           <span @click="handleAddorSubScale('add')">
             <icon-font
               code="&#xe608;"
-              color="rgb(92, 194, 255)"
+              color="rgb(13, 128, 194)"
+              size="20"
             ></icon-font>
           </span>
         </div>
@@ -60,7 +64,7 @@
 import html2canvas from 'html2canvas';
 import { mapGetters } from 'vuex';
 import DragArea from './MainEditorArea/dragArea.vue';
-
+import FileSaver from 'file-saver'
 export default {
   props: {},
   components: {
@@ -72,12 +76,15 @@ export default {
     };
   },
   computed: {
-    ...mapGetters(['executeOpearation', 'executeIndex']),
+    ...mapGetters(['executeOpearation', 'executeIndex',]),
+    ...mapGetters(['editorLayout']),
     canUndo() {
       return this.executeIndex > 0;
+     
     },
     canRedo() {
       return this.executeIndex < this.executeOpearation.length - 1;
+      
     },
   },
   methods: {
@@ -99,6 +106,7 @@ export default {
       this.$store.commit({
         type: 'undo',
       });
+    
     },
     handleRedo() {
       if (!this.canRedo) {
@@ -107,6 +115,15 @@ export default {
       this.$store.commit({
         type: 'redo',
       });
+    
+    },
+
+    toJSON() {
+      console.log('json' ,this.editorLayout)
+      const data = JSON.stringify(this.editorLayout)
+      const blob = new Blob([data], {type: ''})
+      FileSaver.saveAs(blob, 'data.json')
+
     },
     // 页面元素转图片
     toImage() {
@@ -137,7 +154,7 @@ export default {
       };
       html2canvas(canvasBox, options).then((canvascap) => {
         // toDataURL 图片格式转成 base64
-        const dataURL = canvascap.toDataURL('image/png');
+        const dataURL = canvascap.toDataURL('image/jpeg');
         console.log(dataURL);
         this.downloadImage(dataURL);
       });
@@ -218,9 +235,9 @@ export default {
       .el-slider__button-wrapper {
         top: -16px;
         .el-slider__button {
-          width: 10px;
-          height: 10px;
-          border: solid 1px rgb(92, 194, 255);
+          width: 15px;
+          height: 15px;
+          border: solid 1px rgb(13, 128, 194);
         }
       }
       .el-slider__bar {

@@ -109,7 +109,7 @@ export const IMAGE_STYLE = [{
 
 export const URL_STYLE = [{
         style_label: 'URL链接',
-        style_id: 'text',
+        style_id: 'url',
         component: 'el-input',
         componentAttr: {
             type: 'textarea',
@@ -117,7 +117,16 @@ export const URL_STYLE = [{
         },
     },
     {
-        style_label: '链接字体大小',
+        style_label: '文本',
+        style_id : 'text',
+        component: 'el-input',
+        componentAttr: {
+            type: 'textarea',
+            rows: 2,
+        }
+    },
+    {
+        style_label: '字体大小',
         style_id: 'fontSize',
         component: 'el-input-number',
         componentAttr: {
@@ -128,7 +137,7 @@ export const URL_STYLE = [{
         },
     },
     {
-        style_label: '链接位置',
+        style_label: '文本位置',
         style_id: 'textAlign',
         component: 'c-radio-group',
         componentAttr: {
